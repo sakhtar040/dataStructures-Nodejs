@@ -11,4 +11,5 @@ const findVowels = data => {
 };
 
 console.log(`Vowels: ${findVowels("shahbaz")}`);
+console.log(`Vowels: ${findVowels("hulala")}`);
 console.log(`Vowels: ${findVowels("tabish")}`);
