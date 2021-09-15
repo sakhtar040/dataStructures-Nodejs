@@ -132,3 +132,49 @@ console.log(`Binay Search: ${BinarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9], 9)}`);
 console.log(`Palindrome: ${palindrome("racecar")}`);
 console.log(`Factorial: ${factorial(8)}`);
 console.log(`Fibonacci: ${fibonacci(15)}`);
+
+
+
+searchInSorted(arr, N, K) //binary
+    {
+        // store left index in l with 0 and right in r with n-1
+        let l = 0, r = N-1;
+        // calculate mid
+        let m = l + Math.floor((r-l) / 2);
+    
+        // binary search to find the element in sorted array
+    	while (l <= r) { 
+    	    // calculate mid on each iteration
+    		m = l + Math.floor((r-l) / 2);
+    
+    		// Check if x is present at mid 
+    		if (arr[m] == K) 
+    			return 1; 
+    
+    		// If x greater, ignore left half 
+    		if (arr[m] < K) 
+    			l = m + 1; 
+    
+    		// If x is smaller, ignore right half 
+    		else
+    			r = m - 1; 
+    	} 
+    
+    	// if we reach here, then element was 
+    	// not present 
+    	return -1; 
+    }
+
+	searchInSorted(arr, N, K) //binary
+    {
+        let mid = Math.floor((arr[arr.length - 1] - arr[0])/2);
+    	if(arr[mid] == K) {
+    		return 1;
+    	} else if(K > arr[mid]) {
+    		return this.searchInSorted(arr.splice(mid+1, arr.length), N, K);
+    	} else if(K < arr[mid]) {
+    		return this.searchInSorted(arr.splice(0, mid), N, K);
+    	} else {
+    		return -1;
+    	} 
+    }
